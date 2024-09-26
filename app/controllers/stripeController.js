@@ -28,8 +28,8 @@ export default {
       const session = await stripe.checkout.sessions.create({
         line_items: lineItems,
         mode: 'payment',
-        success_url: `http://localhost:${process.env.PORT}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `http://localhost:${process.env.PORT}/cancel`,
+        success_url: `${process.env.HOST_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${process.env.HOST_URL}/cancel`,
         metadata: {
           cart: JSON.stringify(cart)
         }

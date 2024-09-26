@@ -4,9 +4,8 @@ import 'dotenv/config';
 // Import NPM modules
 import express from 'express';
 import session from 'express-session';
-
-//Import Stripe
-import Stripe from 'stripe';
+import RedisStore from 'connect-redis';
+import { createClient } from 'redis';
 
 import router from './app/routers/router.js';
 import { errorHandler, notFound } from './app/middlewares/errorHandlers.js';
@@ -15,15 +14,10 @@ import authMiddleware from './app/middlewares/authMiddleware.js';
 // Create Express app
 const app = express();
 
-// Create Stripe app
-const stripe = new Stripe (process.env.STRIPE_SECRET_KEY);
-const MON_DOMAIN ='http://localhost:3000'
-
 // Configure view engine
 app.set("views", "./app/views");
 app.set("view engine", "ejs");
 
-app.use(express.json());
 // Configure assets routes (static folder)
 app.use("/public", express.static("public"));
 
@@ -31,10 +25,30 @@ app.use("/public", express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
 
+const redisClient = createClient({
+  url: process.env.REDIS_URL,
+});
+
+redisClient.connect().catch(console.error);
+
+redisClient.on('connect', () => {
+  console.log('Connected to Redis');
+});
+
+redisClient.on('error', (err) => {
+  console.error('Redis error: ', err);
+});
+
+// Configure session store with Redis
+const store = new RedisStore({
+  client: redisClient
+});
+
 app.use(session({
+  store,
   secret: process.env.SESSION_SECRET, 
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   cookie: { secure: process.env.NODE_ENV === "production", 
     httpOnly: true,
     maxAge: 86400000
