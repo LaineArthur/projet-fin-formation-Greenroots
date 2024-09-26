@@ -58,7 +58,3 @@ et fluide, accessible et pensé de façon éco-friendly.
 Quelques jours avant la mise en production le ligthhouse indique une accèssibilité de 96, bonnes pratiques à 93 et SEO à 91.
 Nous travaillons durement pour améliorer les performances , à commencer par minifier les feuilles de styles ainsi que les interactions en JS.
 
-
-## Licence
-
-Ce projet est sous licence MIT. Veuillez consulter le fichier [LICENSE](LICENSE) pour plus d'informations.
