@@ -8,6 +8,7 @@ import authMiddleware from './app/middlewares/authMiddleware.js';
 
 // Create Express app
 const app = express();
+app.set('trust proxy', 1);
 
 
 // Configure view engine
