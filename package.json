@@ -34,10 +34,10 @@
     "scrypt-js": "^3.0.1",
     "sequelize": "^6.37.3",
     "stripe": "^16.11.0",
-    "tarteaucitronjs": "^1.19.0"
+    "tarteaucitronjs": "^1.19.0",
+    "nodemon": "^3.1.4"
   },
   "devDependencies": {
-    "dotenv-cli": "^7.4.2",
-    "nodemon": "^3.1.4"
+    "dotenv-cli": "^7.4.2"
   }
 }
