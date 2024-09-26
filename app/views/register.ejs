@@ -1,0 +1,78 @@
+<%- include('partials/header') %>
+
+    <div class="notification-container mx-6">
+        <% if (message) { %>
+            
+            <div class="notification <%= message.type %> mb-6 mx-6" id="notification">
+                <p class="has-text-centered"><%= message.text %></p>
+            </div>
+            <% delete message; %>
+        <% } %>
+    </div>
+
+    <main class="is-flex-grow-1">
+        <div class="bg-image mx-5">
+            <h1 class="title-page my-2 has-text-centered has-text-weight-semibold mb-4">Nous rejoindre</h1>
+        </div>
+
+        <section class="mt-6">
+
+            <p class="has-text-centered">
+                S'inscrire sur notre site, c'est rejoindre une communauté engagée 
+                pour l'écologie. Chaque inscription nous aide à sensibiliser davantage 
+                de personnes et à soutenir des projets concrets pour la planète. 
+                En vous inscrivant, vous participez activement à notre mission pour 
+                un avenir plus vert.
+            </p>
+
+            <div class="button-choice mt-6">
+                <a href="#"><button class="button-register">Citoyen</button></a>
+                <a href="#"><button class="button-register">Entreprise</button></a>
+            </div>
+    
+            <div class="register-form mt-6">
+                <form action="/nous-rejoindre" method="POST">
+                    <aside class="has-text-centered mb-6 is-italic has-text-weight-light"><span class="required">*</span> Champs obligatoire</aside>
+    
+
+                    <div>
+                        <label for="firstname" class="label has-text-current has-text-left-desktop is-size-3">Prénom<span class="required"> *</span></label>
+                        <input class="mb-6 is-size-4" type="text" id="firstname" name="firstname" placeholder="Votre prénom" required>
+                    </div>
+
+                    <div>
+                        <label for="lastname" class="label has-text-current has-text-left-desktop is-size-3">Nom<span class="required"> *</span></label>
+                        <input class="mb-6 is-size-4" type="text" id="lastname" name="lastname" placeholder="Votre nom" required>
+                    </div>
+
+                    <div>
+                        <label for="adress" class="label has-text-current has-text-left-desktop is-size-3">Adresse<span class="required"> *</span></label>
+                        <input class="mb-6 is-size-4" type="text" id="adress" name="adress" placeholder="Votre adresse postale" required>
+                    </div>
+
+                    <div>
+                        <label for="email" class="label has-text-current has-text-left-desktop is-size-3">Email<span class="required"> *</span></label>
+                        <input class="mb-6 is-size-4" type="email" id="email" name="email" placeholder="Votre adresse email" required>
+                    </div>
+
+                    <div>
+                        <label for="password" class="label has-text-current has-text-left-desktop is-size-3">Mot de passe<span class="required"> *</span></label>
+                        <input class="mb-6 is-size-4" type="password" id="password" placeholder="Votre mot de passe" name="password" required>
+                    </div>
+
+                    <div>
+                        <label for="confirmation" class="label has-text-current has-text-left-desktop is-size-3">Confirmation de mot passe<span class="required"> *</span></label>
+                        <input class="mb-6 is-size-4" type="password" id="confirmation" name="confirmation" placeholder="Veuillez confirmer votre mot de passe" required>
+                    </div>
+
+                    <button class="button-validate is-custom-green is-large mt-2" type="submit">S'inscrire</button>
+                </form>
+            </div>
+
+
+        </section>
+
+        
+    </main>
+
+    <%- include('partials/footer') %>

@@ -1,0 +1,165 @@
+/* Import la police google font Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Import la police google font Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+  
+    min-height: 100vh;
+    font-size: 1.6rem; 
+    max-width: 100vw;
+}
+
+/* SCRIPT SELECT CATEGORY */
+.hide-card {
+  display: none;
+}
+
+h1, h2, h3, h4, h5, h6, button {
+    font-family: "Montserrat";
+
+}
+
+h1 {
+    text-align: center;
+    margin: 5rem 0 3rem;
+    font-size: 3.2rem;
+    width: 100%;
+
+}
+
+h2, h3, h4, h5 {
+    font-size: 2.4rem;
+}
+
+.card-content h2 {
+  color: #053D2B;
+}
+
+.card-content p {
+  color: #3C3C3B;
+}
+
+/* MENU SELECT */
+.select-tree select {
+  padding: 0.5rem;
+  border-radius: 20px;
+  text-align: center;
+  width: 100%;
+  background-color: #D9D9D9;
+  color: #053D2B;
+  
+}
+
+.select-tree select:hover {
+  background-color: #C0C0C0;
+}
+
+.card-tree {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.tree {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 1024px) { 
+  
+}
+
+/* CARD TREE */
+  
+  .card-content {
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    background-color: #D9D9D9; 
+    padding: 0;
+  }
+
+  article {
+    width: 200px;
+    height: 300px;
+  }
+
+  .details {
+    font-weight: bold;
+    width: 100%;
+    background-color: #2B743A;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    height: 4rem;
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .details:hover {
+    background-color: #053d2b;
+  }
+
+  .content {
+    line-height: 0.5rem;
+    height: 4rem;
+  }
+    
+ main {
+  width: auto;
+  gap: 4rem;
+}
+
+
+@media (min-width: 1024px) {
+  .select-tree {
+    width: 100%;
+    margin: 0;
+    height: 50px;
+  }
+
+  .select-tree select {
+    width: 250px;
+    margin: 0;
+  }
+
+  .tree {
+    width: 350px;
+    height: auto;
+  }
+
+  .card-tree {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5rem;
+    flex-wrap: wrap;
+    margin: 0 5%;
+    width: 90%;
+  }
+
+  article {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0 5%;
+  }
+
+}
+
+
+  
+ 

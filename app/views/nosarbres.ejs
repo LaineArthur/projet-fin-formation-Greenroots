@@ -1,0 +1,56 @@
+<%- include('partials/header') %>
+
+<main class="is-flex is-flex-direction-column is-align-items-center  is-flex-grow-1">
+    <h1 class="has-text-weight-semibold"><%= subtitle %></h1>
+    
+    <% if (trees.length === 0) { %>
+        <p>Nous n'avons pas d'arbres qui correspondent à la recherche "<%= output %>"</p>
+        <a href="/nos-arbres">Voir tous nos arbres</a>
+      <% } %>
+        
+
+    
+    <!-- Premiere carte  -->
+    <section class="card-tree">
+        <div class="select-tree">
+            <select class="mb-6" name="variety" id="variety-tree">
+                <option value="all-varieties">Toutes les variétés</option>
+                    <% varieties.forEach(variety => { %>
+                <option value="<%= variety.slug %>"><%= variety.name %></option>
+                    <% }); %>
+            </select>
+        </div>
+            
+            
+            <% trees.forEach(tree => { %>
+                <article class="tree <%= tree.variety.slug %> ">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <a href="/nos-arbres/<%= tree.slug %>"><img
+                                    src="/public/images/photos/<%= tree.image %>"
+                                    alt="Photo d'un <%= tree.name %>"
+                                    /></a>
+                            </figure>
+                        </div>
+                        <div class="card-content has-background-white-bis is-flex is-flex-direction-column is-justify-content-space-between	">
+                            <div class="media">
+                            </div>
+                                <div class="content is-flex is-flex-direction-column is-justify-content-space-between is-flex-grow-1">
+                                    <h2  class="title-card has-text-centered is-size-4 m-2"><%= tree.name %></h2>
+                                    <p class="has-text-centered is-size-5"><%= tree.variety.name %></p>
+                                    <p class="has-text-centered is-size-5">À partir de <%= tree.price_ttc %> €</p>                                    
+                                </div>
+                                <a href="/nos-arbres/<%= tree.slug %>"><button class="button details is-size-4">Détails</button></a>
+                        </div>
+                    </div>
+                </article>
+                    
+            <% }) %>                
+    </section>
+     
+</main>
+<script src="/public/js/selectCategory.js" defer></script>
+<%- include('partials/footer') %>           
+            
+            

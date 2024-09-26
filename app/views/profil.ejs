@@ -1,0 +1,70 @@
+<%- include('partials/headerConnect') %>
+
+<div class="notification-container">
+    <% if (message) { %>
+        
+        <div class="notification <%= message.type %> mb-6" id="notification">
+            <p class="has-text-centered"><%= message.text %></p>
+        </div>
+        <% delete message; %>
+        <% } %>
+    </div>
+ 
+<main class="is-flex is-flex-direction-column is-align-items-center is-justify-content-space-between is-flex-grow-1">
+
+    
+    <h1 class="connection">Bienvenue <%= user.firstname %></h1>
+
+
+    <div class="form_container">
+        <form class="form_info" action="/profil/update" method="post">
+            <label for="lastname">Nom</label>
+            <input type="text" name="lastname" id="lastname" placeholder="Nom" value="<%= user.lastname %>">
+
+            <label for="firstname">Prénom</label>
+            <input type="text" name="firstname" id="firstname" placeholder="Prénom" value="<%= user.firstname %>">
+
+            <label for="adress">Adresse</label>
+            <input type="text" name="adress" id="adress" placeholder="Adresse" value="<%= user.adress %>">
+
+            <label for="mail">E-Mail</label>
+            <input type="email" id="mail" name="email" placeholder="mail" value="<%= user.email %>">
+
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" placeholder="Mot de passe" value="<%= user.password %>">
+            <button class="button_modify" type="submit">Modifier mon profil</button>
+
+        </form> 
+
+        <!-- Modal supression du compte -->
+        
+       <!-- Bouton pour afficher le modal -->
+<button id="openModal" class="button_delete">Supprimer</button>
+
+<!-- Modal supression du compte -->
+<div class="modal" id="addListModal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="confirm modal-card-title">Confirmation de suppression</p>
+            <button class="delete" aria-label="close" id="closeModal"></button>
+        </header>
+        <section class="modal-card-body">
+            <p class="phrase_delete">Êtes-vous sûr de vouloir supprimer votre compte ?</p>
+        </section>
+        <footer class="modal-card-foot">
+            <!-- Bouton avertissement pour la suppression -->
+            <form action="/profil/delete" method="post">
+                <button class="button_modal_delete is-warning" type="submit">Confirmer</button>
+            </form>
+
+            <!-- Bouton pour annuler -->
+            <button class="button_cancel" id="cancelModal" class="button is-success">Annuler</button>
+        </footer>
+    </div>
+</div>
+    <!-- Fin de Modal-->
+
+</main>
+<script src="/public/js/modal.js" ></script>
+<%- include('partials/footer') %>
